@@ -1,0 +1,65 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.forgot-pass{
+    display: none;
+}
+.row{
+    margin: 15px;
+}
+
+.plus-round{
+  background: url('/images/add.png') no-repeat;
+}
+
+.menu{
+    background-color: #333;
+    border-radius: 6%;
+    border-right: 1px solid #e5e5e5;
+    display: block;
+    float: left;
+    overflow: hidden;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.menu a{
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 40px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.menu  a:hover {
+    background-color: #ddd;
+    color: black;
+    text-decoration: none;
+}
+
+.menu  a.active {
+    background-color: #3D9970;
+    color: white;
+    text-decoration: none;
+}
+
+ button.btn.btn-primary,
+ button.btn.btn-primary:hover,
+ button.btn.btn-primary:active,
+ button.btn.btn-primary:visited,
+ button.btn.btn-primary:focus {
+    background-color: #3D9970;
+    border-color: #3D9970;
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 1206px) {
+  
+}

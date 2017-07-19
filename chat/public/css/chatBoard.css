@@ -1,0 +1,212 @@
+@-webkit-keyframes checkmark {
+  0% {height: 0;
+    width: 0;
+    opacity: 1; }
+  20% {
+    height: 0;
+    width: 22.5px;
+    opacity: 1; }
+  40% {
+    height: 50px;
+    width: 22.5px;
+    opacity: 1; }
+  100% {
+    height: 50px;
+    width: 22.5px;
+    opacity: 1; }
+}
+@-moz-keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1; }
+  20% {
+    height: 0;
+    width: 22.5px;
+    opacity: 1; }
+  40% {
+    height: 50px;
+    width: 22.5px;
+    opacity: 1; }
+  100% {
+    height: 50px;
+    width: 22.5px;
+    opacity: 1; }
+  }
+@keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1; }
+  20% {
+    height: 0;
+    width: 22.5px;
+    opacity: 1; }
+  40% {
+    height: 50px;
+    width: 22.5px;
+    opacity: 1; }
+  100% {
+    height: 50px;
+    width: 22.5px;
+    opacity: 1; } 
+}
+.checkmark-circle {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  display: block;
+  margin: 30px auto;
+  vertical-align: top;
+  padding: 0px;
+}
+.checkmark-circle .background {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid green;
+    background-color: transparent;
+    position: absolute; 
+}
+.checkmark-circle .checkmark.draw:after {
+    -webkit-animation-delay: 100ms;
+    -moz-animation-delay: 100ms;
+    animation-delay: 100ms;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease;
+    -moz-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-name: checkmark;
+    -moz-animation-name: checkmark;
+    animation-name: checkmark;
+    -webkit-transform: scaleX(-1) rotate(135deg);
+    -moz-transform: scaleX(-1) rotate(135deg);
+    -ms-transform: scaleX(-1) rotate(135deg);
+    -o-transform: scaleX(-1) rotate(135deg);
+    transform: scaleX(-1) rotate(135deg);
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    opacity: 1;
+    -webkit-transform-origin: left top;
+    -moz-transform-origin: left top;
+    -ms-transform-origin: left top;
+    -o-transform-origin: left top;
+    transform-origin: left top;
+    border-right: 3px solid green;
+    border-top: 3px solid green;
+    border-radius: 2.5px !important;
+    content: '';
+    left: 19.5px;
+    top: 47px;
+    position: absolute; 
+}
+.md-small {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  min-height: 25px;
+  min-width: 60px;
+  font-size: 11px;
+  padding: 0 0;
+  margin: 0 5px;
+}
+.primaryToolbar h1,
+.primaryToolbar h2,
+.primaryToolbar h3,
+.primaryToolbar h4,
+.primaryToolbar h5,
+.primaryToolbar.md-toolbar-tools .md-button.md-icon-button md-icon,
+.primaryToolbar md-content {
+  color: white !important;
+}
+.primaryToolbar md-content,
+.loggedUserInfo .md-button.md-default-theme:not([disabled]):hover,
+.loggedUserInfo .md-button:not([disabled]):hover {
+  background-color: transparent;
+}
+.userDrpdwnBtn .md-button {
+  padding-left: 0px !important;
+}
+#menu_container_4,
+#menu_container_5 {
+  top: 56px !important;
+}
+#menu_container_5 {
+  left: auto;
+  right: 2px;
+}
+.loggedUserStatus md-list-item {
+  font-size: 14px;
+}
+.loggedUserStatus md-list-item::before {
+  min-height: auto;
+}
+.loggedUserStatus md-list-item {
+  min-height: 28px;
+}
+.loggedUserStatus md-list-item md-radio-button {
+  margin-bottom: 5px;
+}
+.searchBar {
+  display: flex;
+}
+.searchBar md-icon {
+  padding: 3px 3px 3px 0;
+  margin: 4px 6px 4px 0; 
+}
+.searchBar input {
+  border: none;
+  color: gray;
+  display: flex;
+  padding: 5px 10px;
+  height: 36px;
+  width: 100%;
+  font-size: 13px;
+  outline: none;
+}
+.searchBar input:focus {
+  border: none;
+  outline: none;
+}
+/* Primary content area */
+#content {
+  overflow: hidden;
+  background-color: white;
+  position: relative;
+  width: 100%
+}
+.palPrimaryToolbar {
+  height: 64px;
+}
+@media (min-width: 600px) {
+  .primaryToolbar md-content .md-avatar {
+    margin-top: 7px;
+  }
+  #menu_container_4,
+  #menu_container_5 {
+    top: 48px !important;
+  }
+}
+@media (min-width: 960px) {  
+  .primaryToolbar md-content .md-avatar {
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+  }
+  #menu_container_4 {
+    top: 64px !important;
+  }
+  .searchBar {
+    padding-top: 14px;
+  }
+  .searchBar .md-button {
+    font-size: 11px;
+  }
+}
+@media (min-width: 1280px) {
+  
+}
+

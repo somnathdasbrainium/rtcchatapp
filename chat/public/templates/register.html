@@ -1,0 +1,58 @@
+<div class="md-inline-form" flex layout="row" layout-fill layout-align="center center" ng-cloak>      
+      <md-card flex-xs='90' flex-sm="80" flex-gt-sm="60" flex-gt-md="35">
+         <md-toolbar layout-padding layout-margin layout-fill class="md-hue-2 primaryToolbar">
+            <h3>Registration</h3>
+          </md-toolbar>
+
+          <md-toolbar class="message md-warn" ng-if="msgBlock">            
+                <h5 class="md-flex">{{message}}</h5>
+          </md-toolbar>
+          
+          <div layout-padding>
+          <form name="userRegForm" name="registerForm">           
+
+            <div layout-gt-xs="row">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>First name</label>
+                <input type="text" name="firstName" ng-model="user.fristName" ng-touched="firstNameError">
+                <p ng-if="firstNameError" class="warn"><small>First name is required.</small></p>
+              </md-input-container>
+            
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Last name</label>
+                <input name="lastName"  type="text" ng-model="user.lastName">
+                <p ng-if="lastNameError" class="warn"><small>Last name is required.</small></p>
+              </md-input-container>          
+            </div>            
+          
+            
+            <div layout-gt-xs="row">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Email</label>
+                <input name="email" type="email" ng-model="user.email">                
+                <p ng-if="emailBlankError" class="warn"><small>Valid email is required.</small></p>                
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Password</label>
+                <input name="password" type="password" ng-model="user.password">
+                <p ng-if="passwordBlankError" class="warn"><small>Password is required.</small></p>
+                <p ng-if="passwordInvalidError" class="warn"><small>Password need min. 6 digit</small></p>
+              </md-input-container>         
+            </div>
+            
+            <div layout="row" layout-align="center center" layout-padding>
+               <div>
+                <md-button class="md-raised md-warn" ng-click="userRegisterSubmit()">Submit</md-button>
+               </div>  
+            </div>
+            
+            <div layout='row' layout-align="center center">               
+                  <small><a ui-sref='app.login' class="md-raised md-primary md-hue-2">Already have an account?</a></small>
+            </div> 
+
+          </form>
+          </div>
+      </md-card>
+  </div>
+

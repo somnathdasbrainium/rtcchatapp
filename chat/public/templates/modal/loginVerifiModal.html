@@ -1,0 +1,28 @@
+<md-toolbar layout-padding layout-margin layout-fill class="md-hue-2 primaryToolbar">
+  <h5>Enter verification Code</h5>
+</md-toolbar>
+
+<md-toolbar class="message" ng-if="msgBlock" ng-class="msgBlockTheme ?'md-accent md-hue-2':'md-warn'">            
+      <h5 class="md-flex">{{message}}</h5>
+</md-toolbar>
+
+<form name="loginVerifiForm" layout-padding>
+<md-dialog-content>
+  
+    <p><small>Please Enter your verification code which we have<br>already send to your registered email ID.</small></p>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Code</label>
+        <input type="text" ng-model="user.verifiCode">
+        <p ng-if="userBlankVerifi" class="warn"><small>Code should not Blank.</small></p>
+      </md-input-container>                       
+    </div>
+  
+</md-dialog-content>
+<md-dialog-actions layout="row" layout-align="center center">
+  
+   <md-button class="md-raised md-warn" ng-click="userVerifiSubmit()">Submit</md-button>
+   <md-button class="md-raised" ng-click="cancelVerifi()">Cancel</md-button>  
+  
+</md-dialog-actions>
+</form>

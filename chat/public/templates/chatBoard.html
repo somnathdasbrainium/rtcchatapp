@@ -1,0 +1,211 @@
+<div layout="column" flex layout-fill >
+	
+	<!-- Header toolbar -->
+	<div layout="row">
+		<md-toolbar layout="row" class="md-toolbar-tools primaryToolbar" md-whiteframe="2">	
+
+			<md-content class="loggedUserInfo">
+				<md-menu>	
+					<md-list-item class="md-2-line userDrpdwnBtn" ng-click="$mdOpenMenu()">				
+						<img src="img/avatar-3.jpg" class="md-avatar" alt="avatar"/>
+						<div class="md-list-item-text" layout="column">
+							<h3>{{LoggedinUserDetails.data.data.employee_name}}</h3>
+							<p><small>online</small></p>
+						</div>				
+					</md-list-item>
+					<md-menu-content width="2" class="loggedUserStatus">
+						<md-radio-group ng-model="data.status">
+							<md-list-item md-ink-ripple>
+								<md-radio-button value="online" class="md-accent">Online</md-radio-button>
+							</md-list-item>
+							<md-list-item md-ink-ripple>
+								<md-radio-button value="away" class="md-warn md-hue-3">Away</md-radio-button>
+							</md-list-item>
+							<md-list-item md-ink-ripple>
+								<md-radio-button value="dnd" class="md-warn">Do not disturb</md-radio-button>
+							</md-list-item>
+							<md-list-item md-ink-ripple>
+								<md-radio-button value="invisible">invisible</md-radio-button>
+							</md-list-item>
+						</md-radio-group>
+							 <md-divider ></md-divider>
+							<md-list-item md-ink-ripple>
+								<a ng-click='logout()'>Logout</a>
+							</md-list-item>
+					</md-menu-content>
+				</md-menu>
+			</md-content>
+
+			<span flex></span>
+
+			<md-menu md-position-mode="target-right target">
+				<md-button class="md-icon-button" aria-label="Favorite" ng-click="$mdOpenMenu()">
+					<md-icon>&#xE7F5;</md-icon>
+				</md-button>
+				<md-menu-content width="4" class="notification">		
+					<md-list-item class="md-2-line">
+						<img src="img/avatar-5.jpg" class="md-fab md-avatar" alt="avatar"/>
+						<div class="md-list-item-text" layout="column">
+							<p><strong>Name</strong></p>
+							<p><small>online</small></p>
+						</div>
+						<md-button class="md-raised md-warn md-small">Accept</md-button>
+						<md-button class="md-raised md-small" md-colors="{background: 'default-background-hue-2'}">Block</md-button>
+					</md-list-item>
+				</md-menu-content>
+			</md-menu>
+
+			<md-button class="md-icon-button" ng-click="openLeftSideMenu()" hide-gt-sm>
+				<md-icon>&#xE5D3;</md-icon>
+			</md-button>
+
+		</md-toolbar>
+	</div><!-- Header toolbar end -->
+	
+	<div layout="row" flex>
+		<!-- Dashboard  Sidebar Start -->
+		<md-sidenav md-colors="{background: 'default-background'}" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="3">
+			<!-- Search start -->
+			<md-toolbar md-colors="{background: 'default-background-hue-1'}" layout-padding class="searchBar" layout="row" md-whiteframe="2">
+				<md-icon> &#xE8B6; </md-icon>
+				<input type="text" ng-model="search" placeholder="Search" ng-keyup="searchUser()">	
+			</md-toolbar>
+			<!-- Search end -->
+		</md-sidenav><!-- Dashboard Sidebar end -->
+
+		<!-- Dashboard body Start -->
+		<md-content layout="column" class="content-wrapper" flex layout-column>
+	        <div layout="column" flex>
+				<!-- Pal's header -->
+				<md-toolbar class='palPrimaryToolbar' layout="row" md-colors="{background: 'default-background-hue-1'}" md-whiteframe="2">
+					<md-list-item class="md-2-line">				
+						<img src="img/avatar-1.jpg" class="md-avatar" alt="avatar"/>
+						<div class="md-list-item-text" layout="column">
+							<h4>{{userResult.employee_name}}</h4>
+							<p><small>online</small></p>
+						</div>				
+					</md-list-item>
+				</md-toolbar><!-- Pal's header end-->
+				
+				<div flex layout="column" layout-align="start center">
+					
+					<div layout="column" flex id="content">
+						scroll
+					</div>
+
+					<md-toolbar layout="row" class='palPrimaryToolbar' md-colors="{background: 'default-background-hue-2'}">
+						<span flex></span>
+						<h2 class="md-toolbar-tools">
+						<span class="md-flex">Toolbar: tall with actions pin to the bottom (md-warn md-hue-3)</span>
+						</h2>
+					</md-toolbar>
+				</div>
+
+	        </div>
+        </md-content>
+        <!-- Dashboard body End -->
+	</div>
+</div>
+
+<!-- 
+<div flex layout="row">
+
+Sidebar Start
+<md-sidenav md-colors="{background: 'default-background'}" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="3">
+
+	<md-toolbar md-colors="{background: 'default-background-hue-1'}" layout-padding class="searchBar" layout="row" md-whiteframe="2">	
+		<md-icon> &#xE8B6; </md-icon>
+		<input type="text" ng-model="search" placeholder="Search" ng-keyup="searchUser()">	
+	</md-toolbar>
+	
+	<md-list-item ng-if='palList && !pal[1].acknowledge' class="md-2-line" ng-repeat="pal in palListDetails" ng-click='userStatus(pal[0]._id)'>				
+		<img src="img/avatar-3.jpg" class="md-avatar" alt="avatar"/>
+		<div class="md-list-item-text" layout="column">
+			<h4>{{pal[0].employee_name}}</h4>
+			<p><small>online</small></p>			
+		</div>
+		<i ng-if='!pal[1].acknowledge' class="material-icons addContact">&#xE7FE;</i>
+		<md-divider></md-divider>				
+	</md-list-item>
+
+	
+	<md-list-item ng-if='palList && pal[1].acknowledge' class="md-2-line"  ng-repeat="pal in palListDetails" ng-click='userStatus(pal[0]._id)'>				
+		<img src="img/avatar-3.jpg" class="md-avatar" alt="avatar"/>
+		<div class="md-list-item-text" layout="column">
+			<h4>{{pal[0].employee_name}}</h4>
+			<p><small>online</small></p>			
+		</div>
+		<i ng-if='!pal[1].acknowledge' class="material-icons addContact">&#xE7FE;</i>
+		<md-divider></md-divider>				
+	</md-list-item>
+
+	<md-list-item ng-if='palSearchList' class="md-2-line"  ng-repeat="user in searchResult" ng-click='userStatus(user._id)'>				
+		<img src="img/avatar-3.jpg" class="md-avatar" alt="avatar"/>
+		<div class="md-list-item-text" layout="column">
+			<h4>{{user.employee_name}}</h4>
+			<p><small>online</small></p>
+		</div>
+		<md-divider></md-divider>				
+	</md-list-item>
+
+
+</md-sidenav>
+Sidebar End
+
+Container Start
+<md-content flex id="content">
+
+<md-toolbar class='palPrimaryToolbar' layout="row" md-colors="{background: 'default-background-hue-1'}" md-whiteframe="2">
+	
+	<md-list-item class="md-2-line">				
+		<img src="img/avatar-1.jpg" class="md-avatar" alt="avatar"/>
+		<div class="md-list-item-text" layout="column">
+			<h4>{{userResult.employee_name}}</h4>
+			<p><small>online</small></p>
+		</div>				
+	</md-list-item>
+
+</md-toolbar>
+Chat Room Start
+<div layout="column" style='height: 100%' ng-if='showPalRoom'>
+	<div flex layout="row" layout-align="center end">			
+		<div>
+			{{userResult.employee_name}} Chat Room
+		</div>		
+	</div>	
+</div>
+Chat Room End
+
+Pal StatusRoom Start
+<div layout="column" style='height: 100%' ng-if='showPalStatus'>
+	<div flex layout="row" layout-align="center end">			
+		Send Request Letter Start
+		<div class='showPalStatus' ng-if='sendRequestLetter'>
+			<img src="img/avatar-1.jpg" class="md-avatar" alt="avatar" md-whiteframe="2"/>
+			<p><strong>{{userResult.employee_name}}</strong> is not in your contacts.</p>
+			<md-button class="btn-lg md-raised md-warn" ng-click="sendRequest(userResult._id)"> Add to Contacts </md-button>
+		</div>
+		Send Request Letter End
+		Sent Request Letter Start
+		<div class='showPalStatus' ng-if='sentRequestLetter'>
+			<img src="img/avatar-1.jpg" class="md-avatar" alt="avatar" md-whiteframe="2"/>
+			<p>You have already sent your request to <strong>{{userResult.employee_name}}</strong>.<br>Do you want to send request again ?</p>
+			<md-button class="btn-lg md-raised md-warn" ng-click="sendRequest(userResult._id)"> Add to Contacts </md-button>
+		</div>
+		Sent Request Letter End
+		Accept Request Letter Start
+		<div class='showPalStatus' ng-if='acceptRequestLetter'>
+			<img src="img/avatar-3.jpg" class="md-avatar" alt="avatar" md-whiteframe="2"/>
+			<p>You have receaved a contact request from <strong>{{userResult.employee_name}}</strong>.<br>What do you want ?</p>
+			<md-button class="md-raised md-warn" ng-click='acceptRequest(userResult._id)'>Accept</md-button>
+			<md-button md-colors="{background: 'default-background-hue-2'}" ng-click='blockRequest(userResult._id)'>Block</md-button>
+		</div>
+		Accept Request Letter End
+	</div>
+</div>
+Pal StatusRoom End
+
+</md-content>
+Container end
+
+</div> -->

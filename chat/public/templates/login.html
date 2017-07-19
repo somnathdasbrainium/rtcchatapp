@@ -1,0 +1,47 @@
+<div class="md-inline-form" flex layout="row" layout-fill layout-align="center center" ng-cloak>      
+      <md-card flex-xs='90' flex-gt-xs='60' flex-gt-sm='30' flex-gt-md='25'>
+         <md-toolbar layout-padding layout-margin layout-fill class="md-hue-2 primaryToolbar">
+            <h3>Login</h3>
+          </md-toolbar>
+
+          <md-toolbar class="message md-warn" ng-if="msgBlock">            
+                <h5 class="md-flex">{{message}}</h5>
+          </md-toolbar>
+		  <div layout-padding>
+          <form>
+
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Login Id</label>
+                <input type="email" ng-model="user.loginId">
+                <p ng-if="loginIdError" class="warn"><small>Login ID is required.</small></p>
+              </md-input-container>                       
+            </div>
+
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Password</label>
+                <input type="password" ng-model="user.loginPassword">
+                <p ng-if="passwordBlankError" class="warn"><small>Password should not blank.</small></p>
+              </md-input-container>                      
+            </div>
+
+            <div layout="row" layout-padding layout-align="center center">
+				<div>
+					<md-button class="md-raised md-warn" ng-click="userLoginSubmit()">Submit</md-button>
+				</div>
+            </div>
+
+            <div layout='column' layout-gt-sm="row" layout-align="center center">
+               <div flex layout='row' layout-align-gt-sm='start'>
+                  <small><a ui-sref='app.register' class="md-raised md-primary md-hue-2">Don't have an account?</a></small>
+               </div>
+               <div flex layout='row' layout-align-gt-sm='end'>
+                 <small><a ui-sref='app.forgotPassword' class="md-raised md-primary md-hue-2">Forgot password?</a></small>
+               </div>               
+            </div>
+
+          </form>
+          </div>
+      </md-card>
+</div>
